@@ -1,0 +1,2 @@
+# foxprompt
+My zsh configs.
