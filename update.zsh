@@ -4,8 +4,6 @@
 #
 
 function foxshell-update {
-    echo "NotImplemented"
-    return 1
 
     echo "getting latest version number..."
     _server_version="$(curl -# "https://vosjedev.pii.at/zsh/version.txt" -o -)"
