@@ -5,15 +5,17 @@
 
 function foxshell-update {
 
+    cd "$HOME"
+    
     echo "getting latest version number..."
     _server_version="$(curl -# "https://vosjedev.pii.at/zsh/version.txt" -o -)"
     if [[ "$_server_version" == "" ]]; then
         echo "Error getting version number."
-        exit 3
+        return 1
     fi
     if [[ "$_server_version" -eq "$_FOX_VERSION" ]]; then
         echo "Already up to date."
-        exit 0
+        return 0
     fi
 
     cd ~/.zsh.plugins.d
@@ -38,6 +40,10 @@ function foxshell-update {
     }
 
     echo "adding new settings entries"
+    rc="$(head -n -3 .zshrc)"
+    rm ~/.zshrc
+    echo "$rc" >> ~/.zshrc
+    
     for i in $(range "$_old_version" "$_FOX_VERSION"); do
         echo "version: $i"
         echo -e "# new for version $i:\n$(curl https://vosjedev.pii.at/configs/zshrc/$i)" >> ~/.zshrc
