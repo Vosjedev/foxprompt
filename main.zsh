@@ -1,10 +1,4 @@
 
-function foxshell-update {
-    echo "NotImplemented"
-    return 1
-}
-
-
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' completions 1
@@ -140,6 +134,7 @@ function range {
 # plugins
 for f in ~/.zsh.plugins.d/*; do
     [[ "$f" == *"/.zsh.plugins.d/main.zsh" ]] && continue
+    [[ "$f" == *"/.zsh.plugins.d/README.md" ]] && continue
     source "$f"
 done
 
