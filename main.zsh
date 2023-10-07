@@ -141,9 +141,11 @@ for f in ~/.zsh.plugins.d/*; do
 done
 
 # custom user configs
-for f in ~/.zsh.d/*; do
-    source "$f"
-done
+if [[ -f ~/.zsh.d/* ]]; then
+    for f in ~/.zsh.d/*; do
+        source "$f"
+    done
+fi
 
 
 function hints {
