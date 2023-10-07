@@ -1,4 +1,6 @@
 
+export LC_CTYPE=en_US.UTF-8
+
 # The following lines were added by compinstall
 zstyle ':completion:*' completer _complete _ignored _approximate
 zstyle ':completion:*' completions 1

@@ -8,7 +8,7 @@ function foxshell-update {
     cd "$HOME"
     
     echo "getting latest version number..."
-    _server_version="$(curl -# "https://vosjedev.pii.at/configs/version.txt" -o -)"
+    _server_version="$(curl -# "https://vosjedev.pii.at/configsq/version.txt" -o -)"
     if [[ "$_server_version" == "" ]]; then
         echo "Error getting version number."
         return 1
